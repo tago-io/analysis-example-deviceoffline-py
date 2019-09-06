@@ -12,7 +12,7 @@ def myAnalysis(context, scope):
   context.log("Hello World")
 
   #  This will log the environment to the TagoIO Analysis console
- context.log('Environment:', context.environment)
+  context.log('Environment:', context.environment)
 
   #  This will log the scope to the TagoIO Analysis console
   context.log('my scope:', scope)
