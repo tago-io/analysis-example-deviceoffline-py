@@ -8,19 +8,11 @@ had communication in the past minutes. If not, it sends an email or sms alert.
 Environment Variables
 In order to use this analysis, you must setup the Environment Variable table.
 
-account_token: Your account token
 check_in_time: Minutes between the last input of the device before sending the notification.
 tag_key: Device tag Key to filter the devices.
 tag_value: Device tag Value to filter the devices.
 email_list: Email list comma separated.
 sms_list: Phone number list comma separated. The phone number must include the country code. Example: +5511999999999
-
-Steps to generate an account_token:
-1 - Enter the following link: https://admin.tago.io/account/
-2 - Select your Profile.
-3 - Enter Tokens tab.
-4 - Generate a new Token with Expires Never.
-5 - Press the Copy Button and place at the Environment Variables tab of this analysis.
 """
 from datetime import datetime
 
@@ -54,7 +46,7 @@ def my_analysis(context, scope: list = None):
         "page": 1,
         "amount": 1000,
         "fields": ["id", "name", "last_input"],
-        # "filter": {'tags': [{'key': env['tag_key'], 'value': env['tag_value']}]},
+        "filter": {'tags': [{'key': "org_id", 'value': "123"}]},
     })
 
     if not devices:
